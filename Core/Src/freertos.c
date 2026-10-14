@@ -46,6 +46,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
+static volatile int i_data = 0;
 
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
@@ -148,7 +149,8 @@ void StartCanBusTesting(void *argument)
   for(;;)
   {
     BSP_LED_Toggle(LED_GREEN);
-    osDelay(500);
+    osDelay(1000);
+    i_data++;
   }
   /* USER CODE END StartCanBusTesting */
 }
