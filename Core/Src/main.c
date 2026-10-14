@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "FreeRTOS.h"
+#include "cmsis_os2.h"
 #include "dma.h"
 #include "usart.h"
 #include "gpio.h"
@@ -51,12 +53,14 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MPU_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+/*
 static uint8_t txBuffer[10240] __attribute__((section(".dma_buffer"), aligned(32)));
 static volatile int isSent = 1;
 
@@ -67,7 +71,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
     isSent = 1;
   }
 }
-
+*/
 /* USER CODE END 0 */
 
 /**
@@ -105,20 +109,32 @@ int main(void)
   MX_DMA_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
+  /*
   for (int i = 0; i < sizeof(txBuffer); i++)
   {
     txBuffer[i] = i&(0xff);
   }
+  */
 
   /* USER CODE END 2 */
 
+  /* Init scheduler */
+  osKernelInitialize();  /* Call init function for freertos objects (in cmsis_os2.c) */
+  MX_FREERTOS_Init();
+
   /* Initialize leds */
   BSP_LED_Init(LED_GREEN);
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    /*
     BSP_LED_Toggle(LED_GREEN);
     if (isSent)
     {
@@ -127,6 +143,7 @@ int main(void)
     }
     //HAL_UART_Transmit(&huart3, (const uint8_t *)txBuffer, sizeof(txBuffer), HAL_MAX_DELAY);
     HAL_Delay(500);
+    */
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
