@@ -115,7 +115,6 @@ int main(void)
     txBuffer[i] = i&(0xff);
   }
   */
-
   /* USER CODE END 2 */
 
   /* Init scheduler */
