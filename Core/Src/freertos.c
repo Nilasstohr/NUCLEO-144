@@ -149,7 +149,7 @@ void StartCanBusTesting(void *argument)
   for(;;)
   {
     BSP_LED_Toggle(LED_GREEN);
-    osDelay(1000);
+    osDelay(200);
     i_data++;
   }
   /* USER CODE END StartCanBusTesting */
