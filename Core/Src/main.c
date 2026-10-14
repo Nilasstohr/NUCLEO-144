@@ -19,7 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "dma.h"
-#include "fatfs.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -104,13 +103,13 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_FATFS_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   for (int i = 0; i < sizeof(txBuffer); i++)
   {
     txBuffer[i] = i&(0xff);
   }
+
   /* USER CODE END 2 */
 
   /* Initialize leds */
@@ -128,9 +127,6 @@ int main(void)
     }
     //HAL_UART_Transmit(&huart3, (const uint8_t *)txBuffer, sizeof(txBuffer), HAL_MAX_DELAY);
     HAL_Delay(500);
-
-
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
