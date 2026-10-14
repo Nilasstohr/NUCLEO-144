@@ -26,7 +26,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "usart.h"
+#include "edt_uart_logger.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -81,7 +82,7 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-
+  EDT_USART_LOGGER_Init(&huart3);
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -149,6 +150,7 @@ void StartCanBusTesting(void *argument)
   for(;;)
   {
     BSP_LED_Toggle(LED_GREEN);
+    EDT_USART_LOGGER_Transmit_DMA("Hello from FreeRTOS!\r\n", 24);
     osDelay(200);
     i_data++;
   }

@@ -43,10 +43,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7011d3fc-b99f-4b9c-86d3-332606f54414" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakePresets.json" beforeDir="false" afterPath="$PROJECT_DIR$/CMakePresets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/edt_uart_logger.c" beforeDir="false" afterPath="$PROJECT_DIR$/Application/edt_uart_logger.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/edt_uart_logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/Application/edt_uart_logger.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,16 +77,18 @@
       </list>
     </option>
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Tests - Tests" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug - Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="LiveWatchesService">
     <items>
       <expr name="i_data">i_data</expr>
+      <expr name="transmit_complete">transmit_complete</expr>
     </items>
     <columns>
       <column name="livewatches.column.name.watch" width="404" />
@@ -152,7 +153,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "CMake Application.NUCLEO-144.executor": "Run",
+    "CMake Application.NUCLEO-144.executor": "Debug",
     "CMake Debug.NUCLEO-144-tests.executor": "Debug",
     "CidrDebugProfileConversion": "true",
     "Google Test.unit_tests.executor": "Run",
@@ -164,11 +165,12 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.stm32.stlink.auto.setup": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "add__gtest",
+    "git-widget-placeholder": "uart__driver",
     "last_opened_file_path": "C:/Stm32CubeMxProjects/NUCLEO-144",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -179,7 +181,12 @@
     "settings.editor.selected.configurable": "CMakeSettings"
   }
 }]]></component>
-  <component name="RunManager" selected="Google Test.unit_tests">
+  <component name="RunManager" selected="CMake Application.NUCLEO-144">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NUCLEO-144-tests" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
       <method v="2" />
     </configuration>
@@ -194,11 +201,6 @@
       </method>
     </configuration>
     <configuration name="STM32_Drivers" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NUCLEO-144-host" TARGET_NAME="STM32_Drivers" CONFIG_NAME="Debug - Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -240,32 +242,32 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SelectedDebugProfileService"><![CDATA[{
-  "profileIdByStamp": [
+  <component name="SelectedDebugProfileService">{
+  &quot;profileIdByStamp&quot;: [
     {
-      "first": {
-        "##RUN_CONFIGURATION##": "CMake Application.NUCLEO-144",
-        "cmake": "CMakeBuildProfile:Debug - Debug"
+      &quot;first&quot;: {
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Application.NUCLEO-144&quot;,
+        &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug - Debug&quot;
       },
-      "second": "310c6a3a-8044-4a12-be69-76041e73202d"
+      &quot;second&quot;: &quot;310c6a3a-8044-4a12-be69-76041e73202d&quot;
     },
     {
-      "first": {
-        "##RUN_CONFIGURATION##": "CMake Debug.NUCLEO-144-tests",
-        "cmake": "CMakeBuildProfile:Debug - Debug"
+      &quot;first&quot;: {
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;CMake Debug.NUCLEO-144-tests&quot;,
+        &quot;cmake&quot;: &quot;CMakeBuildProfile:Debug - Debug&quot;
       },
-      "second": "310c6a3a-8044-4a12-be69-76041e73202d"
+      &quot;second&quot;: &quot;310c6a3a-8044-4a12-be69-76041e73202d&quot;
     },
     {
-      "first": {
-        "##RUN_CONFIGURATION##": "Google Test.unit_tests",
-        "cmake": "CMakeBuildProfile:Tests - Tests"
+      &quot;first&quot;: {
+        &quot;##RUN_CONFIGURATION##&quot;: &quot;Google Test.unit_tests&quot;,
+        &quot;cmake&quot;: &quot;CMakeBuildProfile:Tests - Tests&quot;
       },
-      "second": "a47b507c-13f6-44bf-a88e-ea0bc72e054e"
+      &quot;second&quot;: &quot;a47b507c-13f6-44bf-a88e-ea0bc72e054e&quot;
     }
   ],
-  "modificationCount": 16
-}]]></component>
+  &quot;modificationCount&quot;: 16
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7011d3fc-b99f-4b9c-86d3-332606f54414" name="Changes" comment="" />
@@ -284,6 +286,21 @@
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
     <isAutomaticBootstrapAfterUpdate value="false" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Application/edt_uart_logger.h</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Application/edt_uart_logger.c</url>
+          <line>4</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
