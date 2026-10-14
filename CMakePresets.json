@@ -23,6 +23,15 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
+        },
+        {
+            "name": "Tests",
+            "description": "Host build of unit tests (no ARM toolchain, firmware not built)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
         }
     ],
     "buildPresets": [
@@ -33,6 +42,17 @@
         {
             "name": "Release",
             "configurePreset": "Release"
+        },
+        {
+            "name": "Tests",
+            "configurePreset": "Tests"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "Tests",
+            "configurePreset": "Tests",
+            "output": { "outputOnFailure": true }
         }
     ]
 }
