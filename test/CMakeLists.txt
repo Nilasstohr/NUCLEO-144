@@ -19,13 +19,13 @@ enable_testing()
 include(GoogleTest)
 
 add_executable(unit_tests
-    sample_test.cpp
-    # Add test files and hardware-independent firmware sources here, e.g.
-    # ../Core/Src/my_logic.c
+    logging_test.cpp
+        ../Application/edt_log_item_handler.c
+    # Add test files and hardware-independent firmware sources here
 )
 
 target_include_directories(unit_tests PRIVATE
-    # ../Core/Inc
+    ../Application
 )
 
 target_link_libraries(unit_tests PRIVATE GTest::gtest_main)
