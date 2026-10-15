@@ -26,8 +26,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "edt_logging_task.h"
+#include "edt_logging_tester.h"
+#include "edt_log_item_handler.h"
 #include "usart.h"
-#include "edt_uart_logger.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,8 +49,22 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-static volatile int i_data = 0;
-
+osMessageQueueId_t logQueueHandle;
+const osMessageQueueAttr_t logQueue_attributes = {
+  .name = "logQueue"
+};
+static osThreadId_t loggingTaskHandle;
+static const osThreadAttr_t loggingTask_attributes = {
+  .name = "loggingTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+static osThreadId_t testLoggingTaskHandle;
+static const osThreadAttr_t testLoggingTask_attributes = {
+  .name = "testLoggingTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -82,7 +98,6 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-  EDT_USART_LOGGER_Init(&huart3);
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -99,6 +114,7 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
+  logQueueHandle = osMessageQueueNew (32, sizeof(edt_log_item_t), &logQueue_attributes); // Use full message struct size
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -110,6 +126,8 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  loggingTaskHandle = osThreadNew(StartLoggingTask, &huart3, &loggingTask_attributes);
+  testLoggingTaskHandle = osThreadNew(StartTestLoggingTask, &huart3, &testLoggingTask_attributes);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
@@ -150,9 +168,7 @@ void StartCanBusTesting(void *argument)
   for(;;)
   {
     BSP_LED_Toggle(LED_GREEN);
-    EDT_USART_LOGGER_Transmit_DMA("Hello from FreeRTOS!\r\n", 24);
     osDelay(200);
-    i_data++;
   }
   /* USER CODE END StartCanBusTesting */
 }

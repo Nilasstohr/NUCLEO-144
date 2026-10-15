@@ -10,13 +10,11 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "usart.h"
 
 void EDT_USART_LOGGER_Init(UART_HandleTypeDef *huart);
 void EDT_USART_LOGGER_Transmit(const char *data, uint16_t size);
-void EDT_USART_LOGGER_Transmit_IT(const char *data, uint16_t size);
-void EDT_USART_LOGGER_Transmit_DMA(const char *data, uint16_t size);
-
+void EDT_USART_LOGGER_Transmit_DMA_Blocking(const char *data, uint16_t size);
 #ifdef __cplusplus
 }
 #endif

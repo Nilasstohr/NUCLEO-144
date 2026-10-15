@@ -43,6 +43,10 @@ enable_language(C ASM)
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME}
     Application/edt_uart_logger.c
+    Application/edt_log_item_handler.c
+    Application/edt_logging_task.c
+    Application/edt_logger.c
+    Application/edt_logging_tester.c
 )
 
 # Add STM32CubeMX generated sources
