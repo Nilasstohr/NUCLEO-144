@@ -46,15 +46,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7011d3fc-b99f-4b9c-86d3-332606f54414" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/edt_log_item_handler.c" beforeDir="false" afterPath="$PROJECT_DIR$/Application/edt_log_item_handler.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/edt_log_item_handler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Application/edt_log_item_handler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/edt_logger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Application/edt_logger.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/edt_logging_task.c" beforeDir="false" afterPath="$PROJECT_DIR$/Application/edt_logging_task.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/edt_uart_logger.c" beforeDir="false" afterPath="$PROJECT_DIR$/Application/edt_uart_logger.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/edt_uart_logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/Application/edt_uart_logger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/logging_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/logging_test.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,21 +81,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/edt_log_item_handler.c" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/edt_log_item_handler.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/edt_logging_task.c" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/edt_uart_logger.c" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/edt_uart_logger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h723xx.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/Drivers/edt_can.c" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/Drivers/edt_can.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/Drivers/edt_log_item_handler.c" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/Drivers/edt_log_item_handler.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/Drivers/edt_logging_task.c" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Application/edt_logger.c" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Core/Src/freertos.c" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Stm32CubeMxProjects/NUCLEO-144/test/logging_test.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://diff.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="LiveWatchesService">
     <items>
-      <expr name="i_data">i_data</expr>
-      <expr name="transmit_complete">transmit_complete</expr>
+      <expr name="i">i</expr>
     </items>
     <columns>
       <column name="livewatches.column.name.watch" width="404" />
@@ -149,6 +141,19 @@
 }</component>
   <component name="ProjectId" id="3KgOToSvb3fG2gMPuoDf9IaRZxj" />
   <component name="ProjectSessionTemplates">
+    <option name="inlineTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
     <option name="panelTemplate">
       <template>
         <option name="modeId" value="Agent" />
@@ -169,7 +174,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;CMake Application.NUCLEO-144.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.NUCLEO-144.executor&quot;: &quot;Debug&quot;,
     &quot;CMake Debug.NUCLEO-144-tests.executor&quot;: &quot;Debug&quot;,
     &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
     &quot;Google Test.loggingTest.CanGetLogItem.executor&quot;: &quot;Run&quot;,
@@ -187,23 +192,25 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;logging__queue&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;add__can&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Stm32CubeMxProjects/NUCLEO-144&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Stm32CubeMxProjects\NUCLEO-144\Application\Drivers" />
+    </key>
+  </component>
   <component name="RunManager" selected="CMake Application.NUCLEO-144">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="loggingTest.CanGetLogItem" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NUCLEO-144-host" TARGET_NAME="unit_tests" CONFIG_NAME="Tests - Tests" RUN_TARGET_PROJECT_NAME="NUCLEO-144-host" RUN_TARGET_NAME="unit_tests" TEST_CLASS="loggingTest" TEST_METHOD="CanGetLogItem" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -323,13 +330,18 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Application/edt_uart_logger.h</url>
+          <url>file://$PROJECT_DIR$/Application/Drivers/edt_uart_logger.h</url>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Core/Src/freertos.c</url>
           <line>20</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Application/edt_can_app.c</url>
+          <line>22</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

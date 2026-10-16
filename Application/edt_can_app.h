@@ -5,6 +5,6 @@
 #ifndef NUCLEO_144_HOST_EDT_LOGGING_TESTER_H
 #define NUCLEO_144_HOST_EDT_LOGGING_TESTER_H
 
-void StartTestLoggingTask(void *argument);
+void StartCanAppTask(void *argument);
 
 #endif //NUCLEO_144_HOST_EDT_LOGGING_TESTER_H

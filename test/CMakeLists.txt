@@ -20,7 +20,7 @@ include(GoogleTest)
 
 add_executable(unit_tests
     logging_test.cpp
-        ../Application/edt_log_item_handler.c
+        ../Application/Drivers/edt_log_item_handler.c
     # Add test files and hardware-independent firmware sources here
 )
 
