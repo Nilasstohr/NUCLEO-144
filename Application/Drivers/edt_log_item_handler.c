@@ -17,6 +17,7 @@ edt_log_item_t create_logging_Item(const char *log_msg,const char *task_name) {
     size_t pos = append(item.msg, 0, task_name);
     pos = append(item.msg, pos, " - ");
     pos = append(item.msg, pos, log_msg);
+    pos = append(item.msg, pos, "\n\r");
     item.msg[pos] = '\0';
     item.msg_len = (uint8_t)pos;
     return item;

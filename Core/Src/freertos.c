@@ -26,10 +26,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "edt_logging_task.h"
-#include "edt_logging_tester.h"
-#include "edt_log_item_handler.h"
+#include "Drivers/edt_logging_task.h"
+#include "edt_can_app.h"
+#include "Drivers/edt_log_item_handler.h"
 #include "usart.h"
+#include "Drivers/edt_can.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,9 +60,13 @@ static const osThreadAttr_t loggingTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-static osThreadId_t testLoggingTaskHandle;
-static const osThreadAttr_t testLoggingTask_attributes = {
-  .name = "testLoggingTask",
+osMessageQueueId_t canRxQueueHandle;
+const osMessageQueueAttr_t canRxQueue_attributes = {
+  .name = "canRxQueue"
+};
+static osThreadId_t canAppTaskHandle;
+static const osThreadAttr_t canAppTask_attributes = {
+  .name = "canAppTask",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
@@ -73,13 +78,6 @@ const osThreadAttr_t defaultTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for canBusTesting */
-osThreadId_t canBusTestingHandle;
-const osThreadAttr_t canBusTesting_attributes = {
-  .name = "canBusTesting",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
-};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -87,7 +85,6 @@ const osThreadAttr_t canBusTesting_attributes = {
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
-void StartCanBusTesting(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -115,19 +112,17 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   logQueueHandle = osMessageQueueNew (32, sizeof(edt_log_item_t), &logQueue_attributes); // Use full message struct size
+  canRxQueueHandle = osMessageQueueNew (32, sizeof(edt_can_rx_message_t), &canRxQueue_attributes); // Use full message struct size
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
-  /* creation of canBusTesting */
-  canBusTestingHandle = osThreadNew(StartCanBusTesting, NULL, &canBusTesting_attributes);
-
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   loggingTaskHandle = osThreadNew(StartLoggingTask, &huart3, &loggingTask_attributes);
-  testLoggingTaskHandle = osThreadNew(StartTestLoggingTask, &huart3, &testLoggingTask_attributes);
+  canAppTaskHandle = osThreadNew(StartCanAppTask, &hfdcan1, &canAppTask_attributes);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
@@ -152,25 +147,6 @@ void StartDefaultTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
-}
-
-/* USER CODE BEGIN Header_StartCanBusTesting */
-/**
-* @brief Function implementing the canBusTesting thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartCanBusTesting */
-void StartCanBusTesting(void *argument)
-{
-  /* USER CODE BEGIN StartCanBusTesting */
-  /* Infinite loop */
-  for(;;)
-  {
-    BSP_LED_Toggle(LED_GREEN);
-    osDelay(200);
-  }
-  /* USER CODE END StartCanBusTesting */
 }
 
 /* Private application code --------------------------------------------------*/
